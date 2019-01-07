@@ -1,0 +1,43 @@
+<div data-name="codigoAcceso" class="page" style="background: #f9f9f9;"> 
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a class="link back">
+					<i class="fas fa-angle-left"></i>
+				</a>
+			</div>
+			<div class="title"><img src="images/logo.png"></div>
+			<div class="right"><a href="/menu/"><i class="fas fa-bars"></i></a></div>
+		</div>
+	</div>
+	<!-- Fixed Toolbar -->
+	<div class="toolbar">
+		<div class="toolbar-inner">
+			<span><a href="/mensual/" class="link"><i class="far fa-calendar-alt"></i>Mi calendario</a></span>
+			<span><a href="/resumen/" class="link"><i class="fas fa-align-left"></i>Resumen</a></span>
+			<span><a href="/pastillasMensual/" class="link"><i class="fas fa-tablets"></i>Pastillas</a></span>
+		</div>
+	</div>
+	<div class="page-content">  <!-- Scrollable page content -->
+		<div class="titListas"><span class="texto tit">Código de acceso</span></div>
+		<div class="listas">
+			<div class="itResumen codigo">
+				<span class="tR">Activar código de acceso</span>
+				<div class="col-33 tCheck"><!--check-->
+					<label class="switch" id="codigoAcceso">
+					  <input type="checkbox" class="checkswitch" value="0">
+					  <span class="slider round"></span>
+					</label>
+				</div><!--check-->
+			</div>
+			<form class="formLog" id="formpin">
+				<input type="password" placeholder="Código de acceso" maxlength="4" minlength="4" id="codigoAcceso1" pattern="[0-9]*" inputmode="numeric">
+				<input type="password" placeholder="Repetir código de acceso"maxlength="4" minlength="4" id="codigoAcceso2" pattern="[0-9]*" inputmode="numeric"><br>
+				<div class="botonRosa">
+					<a href="#" class="button" id="btn_guardar_codigo">Guardar código</a>
+				</div>
+			</form>
+		</div>
+	</div>  <!-- Scrollable page content -->
+</div><!-- Initial Page, "data-name" contains page name -->
+

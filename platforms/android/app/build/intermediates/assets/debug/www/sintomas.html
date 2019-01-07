@@ -1,0 +1,306 @@
+        <div data-name="sintomas" class="page" style="background: #f9f9f9;"> 
+        	<div class="navbar">
+        		<div class="navbar-inner">
+        			<div class="left">
+        				<a class="link back">
+        					<i class="fas fa-angle-left"></i>
+        				</a>
+        			</div>
+        			<div class="title"><img src="images/logo.png"></div>
+        			<div class="right"><a href="/menu/"><i class="fas fa-bars"></i></a></div>
+        		</div>
+        	</div>
+        	<div class="toolbar">
+        		<div class="toolbar-inner">
+        			<span><a href="/mensual/" class="link"><i class="far fa-calendar-alt"></i>Mi calendario</a></span>
+        			<span><a href="/resumen/" class="link"><i class="fas fa-align-left"></i>Resumen</a></span>
+        			<span><a href="/pastillasMensual/" class="link"><i class="fas fa-tablets"></i>Pastillas</a></span>
+        		</div>
+        	</div>
+        	<div class="page-content">  <!-- Scrollable page content -->
+        		<div class="titListas"><span class="texto tit">Síntomas</span></div>
+        		<div class="listaSintomas">
+        			<ul>
+        				<li>
+        					<div class="nivel ">
+        						<span>Nivel:</span>
+        						<div class="cBnivel " style="font-size: 9px; margin-right: 3px">Bajo</div>
+        						<div class="cBnivel " style="font-size: 9px; margin-right: 3px">Medio</div>
+        						<div class="cBnivel " style="font-size: 9px; margin-right: 3px">Alto</div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Estreñimiento</span>
+        						<div class="cBnivel "><input type="radio" name="estrenimiento" value="1" data-metodo="estrenimiento" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="estrenimiento" value="2" data-metodo="estrenimiento" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="estrenimiento" value="3" data-metodo="estrenimiento" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Olor corporal</span>
+        						<div class="cBnivel "><input type="radio" name="olor_coropral" value="1" data-metodo="olor-corporal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="olor_coropral" value="2" data-metodo="olor-corporal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="olor_coropral" value="3" data-metodo="olor_coropral" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Acné</span>
+        						<div class="cBnivel "><input type="radio" name="acne" value="1" data-metodo="acne" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="acne" value="2" data-metodo="acne" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="acne" value="3" data-metodo="acne" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Anemia</span>
+        						<div class="cBnivel "><input type="radio" name="anemia" value="1" data-metodo="anemia" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="anemia" value="2" data-metodo="anemia" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="anemia" value="3" data-metodo="anemia" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Aftas</span>
+        						<div class="cBnivel "><input type="radio" name="aftas" value="1" data-metodo="aftas" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="aftas" value="2" data-metodo="aftas" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="aftas" value="3" data-metodo="aftas" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Antojos</span>
+        						<div class="cBnivel "><input type="radio" name="antojos" value="1" data-metodo="antojos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="antojos" value="2" data-metodo="antojos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="antojos" value="3" data-metodo="antojos" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Apetito</span>
+        						<div class="cBnivel "><input type="radio" name="apetito" value="1" data-metodo="apetito" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="apetito" value="2" data-metodo="apetito" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="apetito" value="3" data-metodo="apetito" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Ardor de estómago</span>
+        						<div class="cBnivel "><input type="radio" name="ardor_estomago" value="1" data-metodo="ardor-estomago" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="ardor_estomago" value="2" data-metodo="ardor-estomago" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="ardor_estomago" value="3" data-metodo="ardor-estomago" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Boca seca</span>
+        						<div class="cBnivel "><input type="radio" name="boca_seca" value="1" data-metodo="boca-seca" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="boca_seca" value="2" data-metodo="boca-seca" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="boca_seca" value="3" data-metodo="boca-seca" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Calambres</span>
+        						<div class="cBnivel "><input type="radio" name="calambres" value="1" data-metodo="calambres" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="calambres" value="2" data-metodo="calambres" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="calambres" value="3" data-metodo="calambres" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Náuseas</span>
+        						<div class="cBnivel "><input type="radio" name="nauseas" value="1" data-metodo="nauseas" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="nauseas" value="2" data-metodo="nauseas" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="nauseas" value="3" data-metodo="nauseas" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Cólicos</span>
+        						<div class="cBnivel "><input type="radio" name="colicos" value="1" data-metodo="colicos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="colicos" value="2" data-metodo="colicos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="colicos" value="3" data-metodo="colicos" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Deseo sexual inhibido</span>
+        						<div class="cBnivel "><input type="radio" name="deseo_sexual_inhibido" value="1" data-metodo="deseo-sexual-inhibido" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="deseo_sexual_inhibido" value="2" data-metodo="deseo-sexual-inhibido" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="deseo_sexual_inhibido" value="3" data-metodo="deseo-sexual-inhibido" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Desvanecimiento</span>
+        						<div class="cBnivel "><input type="radio" name="desvanecimiento" value="1" data-metodo="desvanecimiento" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="desvanecimiento" value="2" data-metodo="desvanecimiento" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="desvanecimiento" value="3" data-metodo="desvanecimiento" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Diarrea</span>
+        						<div class="cBnivel "><input type="radio" name="diarrea" value="1" data-metodo="diarrea" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="diarrea" value="2" data-metodo="diarrea" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="diarrea" value="3" data-metodo="diarrea" class="input_sintoma"></div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor abdominal</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_abdominal" value="1" data-metodo="dolor-abdominal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_abdominal" value="2" data-metodo="dolor-abdominal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_abdominal" value="3" data-metodo="dolor-abdominal" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor de ovulación lado derecho</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion_derecho" value="1" data-metodo="dolor-ovulacion-derecho" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion_derecho" value="2" data-metodo="dolor-ovulacion-derecho" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion_derecho" value="3" data-metodo="dolor-ovulacion-derecho" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor de ovulación lado izquierdo</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion_izquierdo" value="1" data-metodo="dolor-ovulacion-izquierdo" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion_izquierdo" value="2" data-metodo="dolor-ovulacion-izquierdo" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion_izquierdo" value="3" data-metodo="dolor-ovulacion-izquierdo" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor en los pechos</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_pechos" value="1" data-metodo="dolor-pechos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_pechos" value="2" data-metodo="dolor-pechos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_pechos" value="3" data-metodo="dolor-pechos" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor en hombros</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_hombros" value="1" data-metodo="dolor-hombros" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_hombros" value="2" data-metodo="dolor-hombros" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_hombros" value="3" data-metodo="dolor-hombros" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor muscular</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_muscular" value="1" data-metodo="dolor-muscular" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_muscular" value="2" data-metodo="dolor-muscular" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_muscular" value="3" data-metodo="dolor-muscular" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor de cabeza</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_cabeza" value="1" data-metodo="dolor-cabeza" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_cabeza" value="2" data-metodo="dolor-cabeza" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_cabeza" value="3" data-metodo="dolor-cabeza" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Inflamación</span>
+        						<div class="cBnivel "><input type="radio" name="inflamacion" value="1" data-metodo="inflamacion" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="inflamacion" value="2" data-metodo="inflamacion" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="inflamacion" value="3" data-metodo="inflamacion" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Fatiga</span>
+        						<div class="cBnivel "><input type="radio" name="fatiga" value="1" data-metodo="fatiga" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="fatiga" value="2" data-metodo="fatiga" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="fatiga" value="3" data-metodo="fatiga" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Mareos</span>
+        						<div class="cBnivel "><input type="radio" name="mareos" value="1" data-metodo="mareos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="mareos" value="2" data-metodo="mareos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="mareos" value="3" data-metodo="mareos" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Piel seca</span>
+        						<div class="cBnivel "><input type="radio" name="piel_seca" value="1" data-metodo="piel-seca" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="piel_seca" value="2" data-metodo="piel-seca" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="piel_seca" value="3" data-metodo="piel-seca" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+       						<div class="nivel ">
+        						<span>Palpitaciones</span>
+        						<div class="cBnivel "><input type="radio" name="palpitaciones" value="1" data-metodo="palpitaciones" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="palpitaciones" value="2" data-metodo="palpitaciones" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="palpitaciones" value="3" data-metodo="palpitaciones" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Preeclamsia</span>
+        						<div class="cBnivel "><input type="radio" name="preeclamsia" value="1" data-metodo="preeclamsia" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="preeclamsia" value="2" data-metodo="preeclamsia" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="preeclamsia" value="3" data-metodo="preeclamsia" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Presión arterial baja</span>
+        						<div class="cBnivel "><input type="radio" name="presion_arterial_baja" value="1" data-metodo="presion-arterial-baja" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="presion_arterial_baja" value="2" data-metodo="presion-arterial-baja" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="presion_arterial_baja" value="3" data-metodo="presion-arterial-baja" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Secreción vaginal</span>
+        						<div class="cBnivel "><input type="radio" name="secrecion_vaginal" value="1" data-metodo="secrecion-vaginal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="secrecion_vaginal" value="2" data-metodo="secrecion-vaginal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="secrecion_vaginal" value="3" data-metodo="secrecion-vaginal" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Sensibiliad en pechos</span>
+        						<div class="cBnivel "><input type="radio" name="sensibilidad_pechos" value="1" data-metodo="sensibilidad-pechos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="sensibilidad_pechos" value="2" data-metodo="sensibilidad-pechos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="sensibilidad_pechos" value="3" data-metodo="sensibilidad-pechos" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Dolor de ovulación</span>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion" value="1" data-metodo="dolor-ovulacion" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion" value="2" data-metodo="dolor-ovulacion" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="dolor_ovulacion" value="3" data-metodo="dolor-ovulacion" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Sequedad vaginal</span>
+        						<div class="cBnivel "><input type="radio" name="sequedad_vaginal" value="1" data-metodo="sequedad-vaginal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="sequedad_vaginal" value="2" data-metodo="sequedad-vaginal" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="sequedad_vaginal" value="3" data-metodo="sequedad-vaginal" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        				<li>
+        					<div class="nivel ">
+        						<span>Bochornos</span>
+        						<div class="cBnivel "><input type="radio" name="bochornos" value="1" data-metodo="bochornos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="bochornos" value="2" data-metodo="bochornos" class="input_sintoma"></div>
+        						<div class="cBnivel "><input type="radio" name="bochornos" value="3" data-metodo="bochornos" class="input_sintoma"></div>
+        					</div>
+        				</li>
+        			</ul>
+        		</div>
+        	</div>  <!-- Scrollable page content -->
+		</div><!-- Initial Page, "data-name" contains page name -->

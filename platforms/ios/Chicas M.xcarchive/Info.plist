@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/Chicas M.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.graphicsandcode.chicasm</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.0.0</string>
+		<key>CFBundleVersion</key>
+		<string>1.0.0</string>
+		<key>SigningIdentity</key>
+		<string>iPhone Developer: Jose Becerra Romero (976B338HNU)</string>
+		<key>Team</key>
+		<string>TET42R3PG2</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2019-01-02T02:25:08Z</date>
+	<key>Name</key>
+	<string>Chicas M</string>
+	<key>SchemeName</key>
+	<string>Chicas M</string>
+</dict>
+</plist>

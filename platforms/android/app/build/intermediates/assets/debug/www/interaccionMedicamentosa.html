@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS -->
+    <link rel="stylesheet" href="css/framework7.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+  </head>
+  <body>
+   
+    <div id="app"> <!-- App root element -->
+      
+      <div class="statusbar"></div><!-- Statusbar overlay -->
+
+      
+      <div class="view view-main"><!-- Your main view, should have "view-main" class -->
+       
+        <div data-name="configuracion" class="page" style="background: #f9f9f9;"> 
+
+        <div class="navbar">
+            <div class="navbar-inner">
+              <div class="left">
+                <a class="link back">
+                  <i class="fas fa-angle-left"></i>
+                </a>
+              </div>
+             <div class="title"><img src="images/logo.png"></div>
+               <div class="right"><a href="/menu/"><i class="fas fa-bars"></i></a></div>
+            </div>
+          </div>
+          <!-- Fixed Toolbar -->
+          <div class="toolbar">
+            <div class="toolbar-inner">
+              <span><a href="/mensual/" class="link"><i class="far fa-calendar-alt"></i>Mi calendario</a></span>
+              <span><a href="/resumen/" class="link"><i class="fas fa-align-left"></i>Resumen</a></span>
+              <span><a href="/pastillasMensual/" class="link"><i class="fas fa-tablets"></i>Pastillas</a></span>
+            </div>
+          </div>
+
+        
+          <div class="page-content mensual">  <!-- Scrollable page content -->
+
+          <div class="contCalendario"><!--contCalendario-->
+
+            <div class="row CR">
+
+            <div class="cajaRosa adminMed"><!--cja rosa-->
+              <div class="infoPeriodo"><!--info periodo-->
+                <span>Próxima toma de medicamento</span><br>
+                <span class="nombreMed">Nombre del medicamento</span><br>
+                <span class="nombreMed">00:00 hrs.</span>
+              </div><!--info periodo-->
+              <div class="logoCorto"><!--logo-->
+                <img src="images/logoCorto.png">
+              </div><!--logo-->
+            </div><!--cja rosa-->
+
+            <div class="inst">Activa para recibir notificaciones de la pastilla</div>
+
+            <div class="agregarAdminMed"><!--agregar admin med-->
+              <div class="col-66 formAIM"><!--form-->
+                <form>
+                  <input type="text" placeholder="Nombre del medicamento">
+                  <input class="horarioPastilla" type="text" readonly="readonly" placeholder="Horario de toma" id="horarioPastilla"/>
+                </form>
+              </div><!--form-->
+               <div class="col-33 tCheck"><!--check-->
+                <label class="toggle toggle-init color-blue">
+                  <input type="checkbox">
+                  <span class="toggle-icon"></span>
+                </label>
+              </div><!--check-->
+              <div class="row semAdminMed">
+                <div class="diaSemana"><span>Lu</span></div>
+                <div class="diaSemana"><span>Ma</span></div>
+                <div class="diaSemana"><span>Mi</span></div>
+                <div class="diaSemana"><span>Ju</span></div>
+                <div class="diaSemana"><span>Vi</span></div>
+                <div class="diaSemana"><span>Sá</span></div>
+                <div class="diaSemana"><span>Do</span></div>
+              </div>
+            </div><!--agregar admin med-->
+
+             <div class="inst">Periodo de notificación</div>
+             <div class="row fechasToma">
+               <div class="col-50 btnGris"><input class="horarioPastilla" type="text" readonly="readonly" placeholder="Fecha de Inicio de toma" id="fechaInicioToma"/></div>
+                <div class="col-50 btnGris"><input class="horarioPastilla" type="text" readonly="readonly" placeholder="Fecha de Fin de toma" id="fechaFinToma"/></div>
+             </div>
+
+            <div class="btnAgregarIntMed"><span><a href="#"><i class="fas fa-plus"></i>Agregar pastilla</a></span></div>
+
+
+
+            
+</div>
+           
+
+          </div>  <!-- Scrollable page content -->
+
+        </div><!-- Initial Page, "data-name" contains page name -->
+
+    </div><!-- App root element -->
+     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="js/framework7.min.js"></script>
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="js/my-app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<div data-name="dia" class="page" style="background: #f9f9f9;"> 
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="left">
+				<a class="link back">
+					<i class="fas fa-angle-left"></i>
+				</a>
+			</div>
+			<div class="title"><img src="images/logo.png"></div>
+			<div class="right"><a href="/menu/"><i class="fas fa-bars"></i></a></div>
+		</div>
+	</div>
+	<div class="page-content mensual">  <!-- Scrollable page content -->
+		<div class="row CR">
+			<div class="cabezaDia">
+				<div class="col-40 diaMes">
+              <!--<span class="btC anterior"><i class="fas fa-angle-left"></i> </span>
+              	<span class="btC siguiente"> <i class="fas fa-angle-right"></i></span>-->
+              	<div class="contDia">
+              		<span class="diaDatos">2</span><br>
+              		<span class="mesDatos">Noviembre</span>
+              	</div>
+              </div>
+              <div class="col-60 notasDia">
+              	<span><i class="fas fa-pencil-alt"></i> Añadir nota</span>
+              	<form>
+              		<textarea id="txtarea_notas" data-metodo="nota"></textarea>
+              	</form>
+              	<button id="eliminar_parametros" class="botonRosa"><i class="far fa-trash-alt"></i> Eliminar parámetros</button>
+              </div>
+          </div>
+          <div class="row fP">
+            <div class="col botonTrans tiempo" id="btn_comienzo_periodo"><span>Comienzo del periodo</span></div>
+          	<div class="col botonTrans tiempo" id="btn_fin_periodo"><span>Fin del periodo</span></div>
+          </div>
+          <div class="row fP">
+            <div class="col botonTrans tiempo" id="btn_eliminar_periodo" data-id-periodo=""><span>Eliminar comienzo de periodo</span></div>
+          </div>
+          <div class="listas">
+          	<div class="itListaDia" id="list_temperatura"><!-- campoConDatos=estilo para marcar campo lleno-->
+          		<span class="iconoLista bbt"></span>
+          		<span> BBT</span>
+          		<div class="item-input-wrap bbt">
+          			<input type="text" placeholder="ºC" readonly="readonly" id="bbt"/>
+          		</div>
+          	</div>
+          	<div class="itListaDia" id="list_flujo_menstrual">
+          		<span class="iconoLista fm "></span><!--icono cuando el campo este lleno-->
+          		<span id="fm"> Flujo menstrual</span>
+          	</div>
+          	<div class="itListaDia" id="list_flujo_cervical">
+          		<span class="iconoLista fc"></span>
+          		<span id="fc"> Flujo cervical </span>
+          	</div>
+          	<div class="itListaDia" id="list_sintomas"><!-- .campoConDatos = barra azul a la izquierda -->
+          		<span class="iconoLista sint "></span><!--iconoLista-(nombredelicono).azul=icono cuando el campo este lleno-->
+          		<span><a id="link_sintomas" class="noColor" href="#">Síntomas</a></span>
+          	</div>
+          	<div class="itListaDia" id="list_pastillas">
+          		<span class="iconoLista past past"></span>
+          		<span><a id="link_pastillas" class="noColor" href="#">Pastillas</a></span>
+          	</div>
+          	<div class="itListaDia" id="list_peso">
+          		<span class="iconoLista peso"></span>
+          		<span> Peso</span>
+          		<div class="item-input-wrap bbt">
+          			<input type="text" placeholder="Kg" readonly="readonly" id="peso"/>
+          		</div>
+          	</div>
+          	<div class="itListaDia" id="list_animo">
+          		<span class="iconoLista animo"></span>
+          		<span><a class="noColor" href="#" id="link_animo">Estado de Ánimo</a></span>
+          	</div>
+          	<div class="itListaDia" id="list_sexo">
+          		<span class="iconoLista sexo"></span>
+          		<span><a class="noColor" href="#" id="link_sexo">Sexo</a></span>
+          	</div>
+          	<div class="itListaDia" id="list_pms">
+              <span class="iconoLista med"></span>
+
+          		<span> Síndrome pre menstrual</span>
+          		<div class="cBnivel ">
+                <label class="item-checkbox item-content">
+                      <div class="item-inner">
+                        <div class="double">
+                        <input type="checkbox" name="pms" value="1" data-metodo="pms" class="input_pms" style="display: block" />
+                        </div>
+                        <!--<i class="icon icon-checkbox"></i>-->
+                      </div>
+                    </label>
+
+              </div>
+          	</div>
+            <!--<div class="itListaDia" id="list_pms">
+              <span class="iconoLista pms"></span>
+
+              <span> Administración medicamentosa</span>
+              <div class="cBnivel ">
+                <label class="item-checkbox item-content">
+                      <div class="item-inner">
+                        <a href="/pastillasMensual/" class="linkadmin" id="link_medicamentosa"><i class="fas fa-angle-right"></i></a>
+                      </div>
+                    </label>
+
+              </div>
+            </div>-->
+          </div>
+          <div class="row fP">
+          <!--<button class="botonRosa" id="btn_guardar_registro">Guardar</button>-->
+        </div>
+      </div>
+  </div>  <!-- Scrollable page content -->
+</div><!-- Initial Page, "data-name" contains page name -->

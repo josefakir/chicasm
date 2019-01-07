@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="#2196f3">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
+	<title>Chicas M</title>
+	<link rel="stylesheet" href="css/framework7.min.css">
+	<link rel="stylesheet" href="node_modules/fullcalendar/dist/fullcalendar.min.css">
+	<link rel="stylesheet" href="css/my-app.css">
+	<link rel="stylesheet" type="text/css" href="js/timedropper.min.css">
+</head>
+<body>
+	<div id="app">
+		<div class="statusbar"></div>
+		<div class="view view-main">
+			<div data-name="home" class="page"> 
+				<div class="page-content">
+					<div class="centrar">
+						<div class="mL">
+							<div class="logoWL"><img src="images/logo.png"></div>
+							<span class="texto tit">Bienvenida</span><br>
+							<span class="texto subtit">Chicas M es un calendario de menstruación y fertilidad para mujeres</span><br>
+							<form class="formLog">
+								<input type="email" placeholder="Correo electrónico" id="login_input_email">
+								<input type="password" placeholder="Contraseña" id="login_input_pass"><br>
+								<a class="link popup-open" href="#" data-popup=".popup-password">¿Olvidaste tu contraseña?</a>
+							</form>
+							<div class="botonColor">
+								<a href="#" class="button" id="btn_iniciar_sesion">Iniciar Sesión</a>
+							</div>
+						</div>
+						<a class="link popup-open" href="#" data-popup=".popup-registro"><span class="gris">¿Primera vez? </span>&nbsp; Regístrate aquí</a>
+					</div>
+					<div class="popup popup-password">
+						<div class="block mensaje">
+							<div class="logoWL"><img src="images/logo.png"></div>
+							<span class="texto tit pop">¿Has olvidado tu contraseña?</span><br>
+							<span class="texto subtit pop">Te enviaremos un mensaje a la dirección de correo asociada a tu cuenta. </span><br>
+							<form class="formLog registro">
+								<input type="email" placeholder="Correo electrónico" id="input_correo_restaurar">
+								<button class="botonTrans registro" id="btn_restaurar_password"><span>Restaurar contraseña</span></button>
+							</form>
+							<p><a class=" popup-close" href="#">Regresar</a></p>
+						</div>
+					</div>
+					<div class="popup popup-registro">
+						<div class="block mensaje">
+							<div class="logoWL"><img src="images/logo.png"></div>
+							<form class="formLog registro" id="form_registro">
+								<input type="text" placeholder="Nombre" id="ipt_reg_nombre" name="ipt_reg_nombre" value="">
+								<input type="text" placeholder="Paterno" id="ipt_reg_paterno" name="ipt_reg_paterno" value="">
+								<input type="text" placeholder="Materno" id="ipt_reg_materno" name="ipt_reg_materno" value="">
+								<input type="email" placeholder="Correo electrónico" id="ipt_reg_correo" name="ipt_reg_correo" value="">
+								<input type="password" placeholder="Contraseña" id="ipt_reg_password" name="ipt_reg_password" value="">
+								<input type="submit" value="Continuar" class="botonTrans registro">
+							</form>
+							<p><a class="popup-close" href="#">Regresar</a></p>
+							<p id="error_registro" class="error"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="node_modules/moment/min/moment.min.js"></script>
+	<script src="node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
+	<script src="node_modules/fullcalendar/dist/locale-all.js"></script>
+	<script type="text/javascript" src="js/framework7.min.js"></script>
+	<script type="text/javascript" src="js/my-app.js"></script>
+	<script src="js/timedropper.min.js"></script>
+	<div id="pincode">
+		<img id="logo_pincode" src="images/logo.png" alt="">
+		<div id="container_input_pincode">
+			<p class="tac">Escriba el código de acceso:</p>
+			<input type="password" maxlength="1" minlength="1" id="digito1" pattern="[0-9]*" inputmode="numeric">
+			<input type="password" maxlength="1" minlength="1" id="digito2" pattern="[0-9]*" inputmode="numeric">
+			<input type="password" maxlength="1" minlength="1" id="digito3" pattern="[0-9]*" inputmode="numeric">
+			<input type="password" maxlength="1" minlength="1" id="digito4" pattern="[0-9]*" inputmode="numeric">
+			<a href="#" id="btn_desbloquear"></a>
+		</div>
+	</div>
+</body>
+</html>

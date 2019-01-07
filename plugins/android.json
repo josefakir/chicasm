@@ -1,0 +1,58 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-android-permissions": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-local-notification": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-badge": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.graphicsandcode.chicasm"
+    }
+  }
+}

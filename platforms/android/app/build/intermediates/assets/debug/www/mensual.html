@@ -1,0 +1,136 @@
+<div data-name="mensual" class="page" style="background: #f9f9f9;"> 
+	<div class="navbar">
+        		<div class="navbar-inner">
+        			<!--<div class="left">
+        				<a class="link back">
+        					<i class="fas fa-angle-left"></i>
+        				</a>
+        			</div>-->
+        			<div class="title"><img src="images/logo.png"></div>
+        			<div class="right"><a href="/menu/"><i class="fas fa-bars"></i></a></div>
+        		</div>
+        	</div>
+	<!-- Fixed Toolbar -->
+	<div class="toolbar">
+		<div class="toolbar-inner">
+			<span><a href="/mensual/" class="link"><i class="far fa-calendar-alt"></i>Mi calendario</a></span>
+			<span><a href="/resumen/" class="link"><i class="fas fa-align-left"></i>Resumen</a></span>
+			<span><a href="/pastillasMensual/" class="link"><i class="fas fa-tablets"></i>Pastillas</a></span>
+		</div>
+	</div>
+	<div class="page-content mensual">  <!-- Scrollable page content -->
+		<div class="contCalendario"><!--contCalendario-->
+			<div class="row CR">
+				<div class="cajaRosa"><!--cja rosa-->
+					<div class="infoPeriodo"><!--info periodo-->
+						<span>Siguiente periodo en:<strong><span id="dias_siguiente_periodo"></span> días</strong></span><br>
+						<div class="probEmb">
+							<span>Posibilidades de embarazo:</span>
+							<div id="probabilidades_embarazo"></div>
+							
+						</div>
+					</div><!--info periodo-->
+					<div class="logoCorto"><!--logo-->
+						<img src="images/logoCorto.png">
+					</div><!--logo-->
+				</div><!--cja rosa-->
+				<!--<div class="btnTiempo">
+					<button class="botonTrans tiempo"><span>AÑOS</span></button>
+					<button class="botonTrans tiempo"><span>MESES</span></button>
+				</div>-->
+				<div id='calendar' class="cajaCalendario"></div>
+				<div class="cajaCalendario">
+					<!--<span class="btC anterior"><i class="fas fa-angle-left"></i> Anterior</span>
+					<span class="btC siguiente">Siguiente <i class="fas fa-angle-right"></i></span>
+					<div class="mes">
+						<span class="txtMes">Noviembre 2018</span>
+						<div class="row dias">
+							<div class="col">Do</div>
+							<div class="col">Lu</div>
+							<div class="col">Ma</div>
+							<div class="col">Mi</div>
+							<div class="col">Ju</div>
+							<div class="col">Vi</div>
+							<div class="col">Sa</div>
+						</div>
+						<div class="row numDia">
+							<div class="col nD">1<span class="conteoMes">(1)</span></div>
+							<div class="col nD"><a href="/dia/">2</a><span class="conteoMes">(2)</span><div class="notDatos"></div></div>
+							<div class="col nD">3<span class="conteoMes">(3)</span></div>
+							<div class="col nD">4<span class="conteoMes">(4)</span></div>
+							<div class="col nD">5<span class="conteoMes">(5)</span></div>
+							<div class="col nD">6<span class="conteoMes">(6)</span></div>
+							<div class="col nD">7<span class="conteoMes">(7)</span></div>
+						</div>
+						<div class="row numDia">
+							<div class="col nD periodoActivo d1">8<span class="conteoMes pA">(8)</span></div>
+							<div class="col nD periodoActivo d2">9<span class="conteoMes pA">(9)</span></div>
+							<div class="col nD periodoActivo d3">10<span class="conteoMes pA">(10)</span></div>
+							<div class="col nD periodoActivo d4">11<span class="conteoMes pA">(11)</span></div>
+							<div class="col nD periodoActivo d5">12<span class="conteoMes pA">(12)</span></div>
+							<div class="col nD">13<span class="conteoMes">(13)</span></div>
+							<div class="col nD">14<span class="conteoMes">(14)</span></div>
+						</div>
+						<div class="row numDia">
+							<div class="col nD">15<span class="conteoMes">(15)</span></div>
+							<div class="col nD">16<span class="conteoMes">(16)</span></div>
+							<div class="col nD">17<span class="conteoMes">(17)</span></div>
+							<div class="col nD">18<span class="conteoMes">(18)</span></div>
+							<div class="col nD">19<span class="conteoMes">(19)</span></div>
+							<div class="col nD">20<span class="conteoMes">(20)</span></div>
+							<div class="col nD">21<span class="conteoMes">(21)</span></div>
+						</div>
+						<div class="row numDia">
+							<div class="col nD">22<span class="conteoMes">(22)</span><span class="notif fertil"></span></div>
+							<div class="col nD">23<span class="conteoMes">(23)</span><span class="notif fertil"></span></div>
+							<div class="col nD">24<span class="conteoMes">(24)</span><span class="notif ovulacion"></span></div>
+							<div class="col nD">25<span class="conteoMes">(25)</span><span class="notif fertil"></span></div>
+							<div class="col nD">26<span class="conteoMes">(26)</span><span class="notif fertil"></span></div>
+							<div class="col nD">27<span class="conteoMes">(27)</span></div>
+							<div class="col nD">28<span class="conteoMes">(28)</span></div>
+						</div>
+						<div class="row numDia">
+							<div class="col nD proxPeriodo">29</div>
+							<div class="col nD proxPeriodo">30</div>
+							<div class="col nD proxPeriodo">1</div>
+							<div class="col nD proxPeriodo">2</div>
+							<div class="col nD proxPeriodo">3</div>
+							<div class="col nD ">4</div>
+							<div class="col nD ">5</div>
+						</div>
+					</div>-->
+
+					<div class="row indicadores">
+						<div class="col indicador">
+							<span class="ind CM"></span><br><span>Ciclo Menstrual</span>
+						</div>
+						<div class="col indicador">
+							<span class="ind DF"></span><br><span>Días Fertiles</span>
+						</div>
+						<div class="col indicador">
+							<span class="ind DO"></span><br><span>Día de ovulación</span>
+						</div>
+						<div class="col indicador">
+							<span class="ind PPP"></span><br><span>Predicción próximo periodo</span>
+						</div>
+					</div>
+				</div><!--caja calendario-->
+			</div>
+			<div class="bannerP">
+				<div class="bP">
+					<!--
+					<form action="" id="formCargarTickets" enctype="multipart/form-data">
+					<a id="cargartickets">CARGA TUS TICKETS AQUÍ</a>
+					<input type="file" name="ticket" style="display: none" id="inputcargar">
+					</form>
+				-->
+				<a href="/misTickets/">CARGA TUS TICKETS AQUÍ</a>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+					<p>&nbsp;</p>
+				</div>
+			</div>
+		</div><!--contCalendario-->
+	</div>  <!-- Scrollable page content -->
+</div><!-- Initial Page, "data-name" contains page name -->
