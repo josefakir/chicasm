@@ -666,7 +666,7 @@ $(document).on('page:init', function (e) {
 						decimal = peso[1];
 						pickerPeso.setValue([entero,'.',decimal]);
 					}
-					if(data.edo_animo!=null){
+					if(data.edo_animo!=null && data.edo_animo!='0|0|0|0|0|0|0|0|0|0|0|0'){
 						$('#list_animo').addClass('campoConDatos');
 						$('.iconoLista.animo').addClass('azul');
 					}
@@ -925,7 +925,70 @@ break;
 case 'animo':
 $('.input_animo').click(function(e){
 	metodo = 'edo-animo';
-	valor = $(this).val();
+	/* PARSEAR TODAS LAS VARIABLES */
+
+	if($('#i_normal').prop('checked')) {
+		normal = '1';
+	}else{
+		normal = '0';
+	}
+	if($('#i_feliz').prop('checked')) {
+		feliz = '1';
+	}else{
+		feliz = '0';
+	}
+	if($('#i_enfadada').prop('checked')) {
+		enfadada = '1';
+	}else{
+		enfadada = '0';
+	}
+	if($('#i_enamorada').prop('checked')) {
+		enamorada = '1';
+	}else{
+		enamorada = '0';
+	}
+	if($('#i_agotada').prop('checked')) {
+		agotada = '1';
+	}else{
+		agotada = '0';
+	}
+	if($('#i_apenada').prop('checked')) {
+		apenada = '1';
+	}else{
+		apenada = '0';
+	}
+	if($('#i_deprimida').prop('checked')) {
+		deprimida = '1';
+	}else{
+		deprimida = '0';
+	}
+	if($('#i_sensible').prop('checked')) {
+		sensible = '1';
+	}else{
+		sensible = '0';
+	}
+	if($('#i_confundida').prop('checked')) {
+		confundida = '1';
+	}else{
+		confundida = '0';
+	}
+	if($('#i_estresada').prop('checked')) {
+		estresada = '1';
+	}else{
+		estresada = '0';
+	}
+	if($('#i_ansiosa').prop('checked')) {
+		ansiosa = '1';
+	}else{
+		ansiosa = '0';
+	}
+	if($('#i_llanto').prop('checked')) {
+		llanto = '1';
+	}else{
+		llanto = '0';
+	}
+
+	valor = normal+'|'+feliz+'|'+enfadada+'|'+enamorada+'|'+agotada+'|'+apenada+'|'+deprimida+'|'+sensible+'|'+confundida+'|'+estresada+'|'+ansiosa+'|'+llanto;
 	nombre_variable = 'edo_animo';
 	id_usuario = localStorage.getItem('userid');
 	fecha = localStorage.getItem('fecha');
@@ -946,8 +1009,66 @@ $.ajax({
 	success : function(data){
 		data = data[0][0];
 		if (data != undefined || data != null) {
-			if(data.edo_animo != null){
-				$('input[name="estado_animo"]').filter('[value="'+data.edo_animo+'"]').prop("checked", true);
+			edos = data.edo_animo.split('|');
+			if(edos[0]==1){
+				$('#i_normal').prop('checked', true);
+			}else{
+				$('#i_normal').prop('checked', false);
+			}
+			if(edos[1]==1){
+				$('#i_feliz').prop('checked', true);
+			}else{
+				$('#i_feliz').prop('checked', false);
+			}
+			if(edos[2]==1){
+				$('#i_enfadada').prop('checked', true);
+			}else{
+				$('#i_enfadada').prop('checked', false);
+			}
+			if(edos[3]==1){
+				$('#i_enamorada').prop('checked', true);
+			}else{
+				$('#i_enamorada').prop('checked', false);
+			}
+			if(edos[4]==1){
+				$('#i_agotada').prop('checked', true);
+			}else{
+				$('#i_agotada').prop('checked', false);
+			}
+			if(edos[5]==1){
+				$('#i_apenada').prop('checked', true);
+			}else{
+				$('#i_apenada').prop('checked', false);
+			}
+			if(edos[6]==1){
+				$('#i_deprimida').prop('checked', true);
+			}else{
+				$('#i_deprimida').prop('checked', false);
+			}
+			if(edos[7]==1){
+				$('#i_sensible').prop('checked', true);
+			}else{
+				$('#i_sensible').prop('checked', false);
+			}
+			if(edos[8]==1){
+				$('#i_confundida').prop('checked', true);
+			}else{
+				$('#i_confundida').prop('checked', false);
+			}
+			if(edos[9]==1){
+				$('#i_estresada').prop('checked', true);
+			}else{
+				$('#i_estresada').prop('checked', false);
+			}
+			if(edos[10]==1){
+				$('#i_ansiosa').prop('checked', true);
+			}else{
+				$('#i_ansiosa').prop('checked', false);
+			}
+			if(edos[11]==1){
+				$('#i_llanto').prop('checked', true);
+			}else{
+				$('#i_llanto').prop('checked', false);
 			}
 		}
 	}
@@ -2164,6 +2285,7 @@ $(document).on("click", "#btn_siguiente_config4", function(e) {
 		app.dialog.alert("Por favor seleccione una opción", "Error");
 	}else{
 		valor_anticonceptivos = $('#valor_anticonceptivos').val();
+
 		var formData = new FormData();
 		formData.append('valor_anticonceptivos',valor_anticonceptivos);  
 		formData.append('id_usuario',localStorage.getItem('userid')); 
@@ -2178,7 +2300,12 @@ $(document).on("click", "#btn_siguiente_config4", function(e) {
 				app.preloader.hide();
 			},
 			success : function(data){
-				mainView.router.navigate('/configuracion6/');
+				if(valor_anticonceptivos.includes("Pastillas")){
+					mainView.router.navigate('/pastillasMensual/');
+					localStorage.setItem('tutorial_inicial','1');
+				}else{
+					mainView.router.navigate('/configuracion6/');
+				}
 			},
 			type : 'POST',
 			url : URL_WS+'config-anticonceptivos',
