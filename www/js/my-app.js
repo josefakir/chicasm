@@ -112,6 +112,11 @@ var app = new Framework7({
 		path: '/dia/:fecha?/',
 	},
 	{
+		url: 'editarPastilla.html',
+		alias: '/editarPastilla/',
+		path: '/editarPastilla/:pastilla?/',
+	},
+	{
 		url: 'sexo.html',
 		alias: '/sexo/',
 		path: '/sexo/:fecha?/',
@@ -306,6 +311,41 @@ function traducir_mes(mes){
 
 $(document).on('page:init', function (e) {
 	switch(app.views.main.router.currentPageEl.dataset.name) {
+		case 'editarPastilla':
+		var cal1 = app.calendar.create({
+			inputEl: '#fecha1'
+		});
+		var cal2 = app.calendar.create({
+			inputEl: '#fecha2'
+		});
+		$( "#alarm" ).timeDropper({
+			'format' : 'H:mm'
+		});
+		var id_pastilla = app.view.main.router.currentRoute.params.pastilla;
+		$.ajax({
+			headers: {
+				"apikey" : localStorage.getItem('apikey')
+			},
+			beforeSend : function(){
+				app.preloader.show();
+			},
+			complete : function(){
+				app.preloader.hide();
+			},
+			url : URL_WS+'info_pastilla/'+id_pastilla,
+			success : function(data){
+				$('#nombre_medicamento').val(data.nombre_pastilla);
+				$('#fecha1').val(data.fecha_inicial);
+				$('#fecha2').val(data.fecha_final);
+				$('#alarm').val(data.hora_notif)
+				$( "#alarm" ).timeDropper({
+					'format' : 'H:mm'
+				});
+				$('#id_pastilla').val(data.id)
+				$('#id_usuario').val(localStorage.getItem('userid'));
+			}
+		});
+		break;
 		case 'misTickets':
 			$.ajax({
 			headers: {
@@ -353,13 +393,14 @@ $(document).on('page:init', function (e) {
 				$('#resumenPeriodos').html('');
 				output = '';
 				$.each( data, function( key, value ) {
+					var id_pastilla = value.id;
 					var fecha_inicial = value.fecha_inicial;
 					var fecha_final = value.fecha_final;
 					if(fecha_final === undefined || fecha_final === null){
 						fecha_final = 'Indefinido';
 					}
 					var nombre_pastilla = value.nombre_pastilla
-					output += '<div class="contInfoPastilla"><span class="horaTomaP">'+fecha_inicial+' <-> '+fecha_final+'</span><br><span class="nombreMed">'+nombre_pastilla+'</span><br><span class="nombreMed chico"></span><br><a href="" class="btn_eliminar_medicamento" data-id="'+value.id+'">ELIMINAR MEDICAMENTO</a></div>';
+					output += '<div class="contInfoPastilla"><a href="/editarPastilla/'+id_pastilla+'/"><span class="horaTomaP">'+fecha_inicial+' <-> '+fecha_final+'</span><br><span class="nombreMed">'+nombre_pastilla+'</span><br><span class="nombreMed chico"></span></a><br><a href="" class="btn_eliminar_medicamento" data-id="'+value.id+'">ELIMINAR MEDICAMENTO</a></div>';
 				});
 				$('#contenidoMedicamentos').html(output);
 			}
@@ -493,7 +534,6 @@ $(document).on('page:init', function (e) {
 			},
 			url : URL_WS+'foto_perfil/'+localStorage.getItem('userid'),
 			success : function(data){
-				console.log(data);
 				if(data!=null){
 					
 					$('#avatar').attr('src',data);
@@ -609,7 +649,6 @@ $(document).on('page:init', function (e) {
 				app.preloader.hide();
 			},
 			success : function(data){
-				//console.log(data);
 				data_periodo = data[1][0];
 				data = data[0][0];
 				if (data != undefined || data != null) {
@@ -688,7 +727,6 @@ $(document).on('page:init', function (e) {
 				}
 
 				if (data_periodo != undefined || data_periodo != null) {
-					console.log(data_periodo)
 					if (data_periodo.fecha_inicial != undefined || data_periodo.fecha_inicial != null) {
 						//activar boton, quitar inicio de periodo
 						$('#btn_fin_periodo').hide();
@@ -864,10 +902,8 @@ $.ajax({
 	},
 	success : function(data){
 		data = data[0][0];
-		console.log(data);
 		if (data != undefined || data != null) {
 			if(data.antibiotico === "1"){
-				console.log('antibiotico');
 				$('input[name="antibiotico"]').prop("checked", true);
 			}
 			if(data.antinflamatorio === "1"){
@@ -2789,10 +2825,15 @@ $(document.body).on('change','#checkboxMenstruacion',function(){
 		var dialog = app.dialog.create({
 			title: 'Hora de recordatorio',
 			text: 'Escriba la hora en la que quiere que se le recuerde',
-			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><select class="dialog-input"><option value="1">1:00:00</option><option value="2">2:00:00</option><option value="3">3:00:00</option><option value="4">4:00:00</option><option value="5">5:00:00</option><option value="6">6:00:00</option><option value="7">7:00:00</option><option value="8">8:00:00</option><option value="9" selected>9:00:00</option><option value="10">10:00:00</option><option value="11">11:00:00</option><option value="12">12:00:00</option><option value="13">13:00:00</option><option value="14">14:00:00</option><option value="15">15:00:00</option><option value="16">16:00:00</option><option value="17">17:00:00</option><option value="18">18:00:00</option><option value="19">19:00:00</option><option value="20">20:00:00</option><option value="21">21:00:00</option><option value="22">22:00:00</option><option value="23">23:00:00</option><option value="24">24:00:00</option></select></div></div>',
+			//content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><select class="dialog-input"><option value="1">1:00:00</option><option value="2">2:00:00</option><option value="3">3:00:00</option><option value="4">4:00:00</option><option value="5">5:00:00</option><option value="6">6:00:00</option><option value="7">7:00:00</option><option value="8">8:00:00</option><option value="9" selected>9:00:00</option><option value="10">10:00:00</option><option value="11">11:00:00</option><option value="12">12:00:00</option><option value="13">13:00:00</option><option value="14">14:00:00</option><option value="15">15:00:00</option><option value="16">16:00:00</option><option value="17">17:00:00</option><option value="18">18:00:00</option><option value="19">19:00:00</option><option value="20">20:00:00</option><option value="21">21:00:00</option><option value="22">22:00:00</option><option value="23">23:00:00</option><option value="24">24:00:00</option></select></div></div>',
+			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><input type="text" class="dialog-input"/></div></div>',
 			buttons: [{text: 'Ok'}],
 			onClick: function (dialog, index) {
-				var hora_recordatorio = dialog.$el.find('.dialog-input').val();
+					var hora_recordatorio = dialog.$el.find('.dialog-input').val();
+					hora_recordatorio = hora_recordatorio.split(":");
+					minuto_recordatorio = hora_recordatorio[1];
+					hora_recordatorio = hora_recordatorio[0];
+
 	        		//	activar notificacion de menstraucion
 	        		var date3 = new Date();
 	        		var month_int3 = date3.getMonth()+2;
@@ -2825,13 +2866,12 @@ $(document.body).on('change','#checkboxMenstruacion',function(){
 	        							app.preloader.hide();
 	        						},
 	        						success : function(data){
-	        							//alert(fecha_proximo+'T'+hora_recordatorio);
 	        							fecha_proximo = fecha_proximo.split('-');
 	        							var anio = parseInt(fecha_proximo[0]);
 	        							var mes = parseInt(fecha_proximo[1]-1);
 	        							var dia = parseInt(fecha_proximo[2]);
 	        							var hora = parseInt(hora_recordatorio);
-	        							var min = parseInt(0);
+	        							var min = parseInt(minuto_recordatorio);
 	        							var seg = parseInt(0);
 	        							cada_cuando = data[0].ciclo_medio;
 	        							localStorage.setItem("notifmenstruacion",true);
@@ -2853,6 +2893,9 @@ $(document.body).on('change','#checkboxMenstruacion',function(){
 	        		});
 	        	}
 	        }).open();
+		$( ".dialog-input" ).timeDropper({
+			'format' : 'H:mm'
+		});
 	}else{
 		cordova.plugins.notification.local.clear(1, function() {
 			cordova.plugins.notification.local.clear(2, function() {
@@ -2870,11 +2913,13 @@ $(document.body).on('change','#checkboxOvulacion',function(){
 		var dialog = app.dialog.create({
 			title: 'Hora de recordatorio',
 			text: 'Escriba la hora en la que quiere que se le recuerde',
-			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><select class="dialog-input"><option value="1">1:00:00</option><option value="2">2:00:00</option><option value="3">3:00:00</option><option value="4">4:00:00</option><option value="5">5:00:00</option><option value="6">6:00:00</option><option value="7">7:00:00</option><option value="8">8:00:00</option><option value="9" selected>9:00:00</option><option value="10">10:00:00</option><option value="11">11:00:00</option><option value="12">12:00:00</option><option value="13">13:00:00</option><option value="14">14:00:00</option><option value="15">15:00:00</option><option value="16">16:00:00</option><option value="17">17:00:00</option><option value="18">18:00:00</option><option value="19">19:00:00</option><option value="20">20:00:00</option><option value="21">21:00:00</option><option value="22">22:00:00</option><option value="23">23:00:00</option><option value="24">24:00:00</option></select></div></div>',
+			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><input type="text" class="dialog-input"/></div></div>',
 			buttons: [{text: 'Ok'}],
 			onClick: function (dialog, index) {
 				var hora_recordatorio = dialog.$el.find('.dialog-input').val();
-
+				hora_recordatorio = hora_recordatorio.split(":");
+				minuto_recordatorio = hora_recordatorio[1];
+				hora_recordatorio = hora_recordatorio[0];
 				$.ajax({
 					headers: {
 						"apikey" : localStorage.getItem('apikey')
@@ -2906,7 +2951,7 @@ $(document.body).on('change','#checkboxOvulacion',function(){
 	        							var mes = parseInt(fecha_proximo[1]-1);
 	        							var dia = parseInt(fecha_proximo[2]);
 	        							var hora = parseInt(hora_recordatorio);
-	        							var min = parseInt(0);
+	        							var min = parseInt(minuto_recordatorio);
 	        							var seg = parseInt(0);
 	        							cada_cuando = data[0].ciclo_medio;
 	        							localStorage.setItem("notifovulacion",true);
@@ -2928,6 +2973,9 @@ $(document.body).on('change','#checkboxOvulacion',function(){
 				});
 			}
 		}).open();
+		$( ".dialog-input" ).timeDropper({
+			'format' : 'H:mm'
+		});
 	}else{
 
 		cordova.plugins.notification.local.clear(3, function() {
@@ -2947,14 +2995,17 @@ $(document.body).on('change','#checkboxAnticonceptiva',function(){
 		var dialog = app.dialog.create({
 			title: 'Hora de recordatorio',
 			text: 'Escriba la hora en la que quiere que se le recuerde',
-			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><select class="dialog-input"><option value="1">1:00:00</option><option value="2">2:00:00</option><option value="3">3:00:00</option><option value="4">4:00:00</option><option value="5">5:00:00</option><option value="6">6:00:00</option><option value="7">7:00:00</option><option value="8">8:00:00</option><option value="9" selected>9:00:00</option><option value="10">10:00:00</option><option value="11">11:00:00</option><option value="12">12:00:00</option><option value="13">13:00:00</option><option value="14">14:00:00</option><option value="15">15:00:00</option><option value="16">16:00:00</option><option value="17">17:00:00</option><option value="18">18:00:00</option><option value="19">19:00:00</option><option value="20">20:00:00</option><option value="21">21:00:00</option><option value="22">22:00:00</option><option value="23">23:00:00</option><option value="24">24:00:00</option></select></div></div>',
+			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><input type="text" class="dialog-input"/></div></div>',
 			buttons: [{text: 'Ok'}],
 			onClick: function (dialog, index) {
 				localStorage.setItem("notifanticonceptiva",true);
 				var hora_recordatorio = dialog.$el.find('.dialog-input').val();
+					hora_recordatorio = hora_recordatorio.split(":");
+					minuto_recordatorio = hora_recordatorio[1];
+					hora_recordatorio = hora_recordatorio[0];
 				var d = new Date();
 				d.setHours(hora_recordatorio);
-				d.setMinutes(0);
+				d.setMinutes(minuto_recordatorio);
 				d.setSeconds(0);
 				cordova.plugins.notification.local.schedule({
 					id : 4,
@@ -2967,6 +3018,9 @@ $(document.body).on('change','#checkboxAnticonceptiva',function(){
 				app.dialog.alert("Recordatorio de píldoras anticonceptivas agendado con éxito ", "Éxito");
 			}
 		}).open();
+		$( ".dialog-input" ).timeDropper({
+			'format' : 'H:mm'
+		});
 	}else{
 		cordova.plugins.notification.local.clear(4, function() {
 			app.dialog.alert("Recordatorio desactivado", "Éxito");
@@ -2977,20 +3031,22 @@ $(document.body).on('change','#checkboxAnticonceptiva',function(){
 });
 
 
-$(document.body).on('change','#checkboxcheckboxAutoexamen',function(){
-	if ($('#checkboxcheckboxAutoexamen').is(':checked')) {
+$(document.body).on('change','#checkboxAutoexamen',function(){
+	if ($('#checkboxAutoexamen').is(':checked')) {
 		var dialog = app.dialog.create({
 			title: 'Hora de recordatorio',
 			text: 'Escriba la hora en la que quiere que se le recuerde',
-			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><select class="dialog-input"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option></select></div></div>',
+			content: '<div class="dialog-input-field item-input"><div class="item-input-wrap"><input type="text" class="dialog-input"/></div></div>',
 			buttons: [{text: 'Ok'}],
 			onClick: function (dialog, index) {
 				localStorage.setItem("notifautoexamen",true);
 				var hora_recordatorio = dialog.$el.find('.dialog-input').val();
+					hora_recordatorio = hora_recordatorio.split(":");
+					minuto_recordatorio = hora_recordatorio[1];
+					hora_recordatorio = hora_recordatorio[0];
 				var d = new Date();
-				d.setDate(hora_recordatorio);
-				d.setHours(10);
-				d.setMinutes(0);
+				d.setHours(hora_recordatorio);
+				d.setMinutes(minuto_recordatorio);
 				d.setSeconds(0);
 				cordova.plugins.notification.local.schedule({
 					id : 5,
@@ -3003,6 +3059,9 @@ $(document.body).on('change','#checkboxcheckboxAutoexamen',function(){
 				app.dialog.alert("Recordatorio de autoexamen de pecho agendado con éxito ", "Éxito");
 			}
 		}).open();
+		$( ".dialog-input" ).timeDropper({
+			'format' : 'H:mm'
+		});
 	}else{
 		cordova.plugins.notification.local.clear(5, function() {
 			app.dialog.alert("Recordatorio desactivado", "Éxito");
@@ -3040,10 +3099,11 @@ $(document.body).on('click','#btn_guardar_pastilla',function(e){
 			app.preloader.hide();
 		},
 		success : function(data){
+			id_pastilla = data.id;
 			var fecha_inicial = data.fecha_inicial;
 			var fecha_final = data.fecha_final;
 			var nombre_pastilla = data.nombre_pastilla
-			output = '<div class="contInfoPastilla"><span class="horaTomaP">'+fecha_inicial+' <-> '+fecha_final+'</span><br><span class="nombreMed">'+nombre_pastilla+'</span><br><span class="nombreMed chico"></span><br><a href="" class="btn_eliminar_medicamento" data-id="'+data.id+'">ELIMINAR MEDICAMENTO</a></div>';
+			output += '<div class="contInfoPastilla"><a href="/editarPastilla/'+id_pastilla+'/"><span class="horaTomaP">'+fecha_inicial+' <-> '+fecha_final+'</span><br><span class="nombreMed">'+nombre_pastilla+'</span><br><span class="nombreMed chico"></span></a><br><a href="" class="btn_eliminar_medicamento" data-id="'+data.id+'">ELIMINAR MEDICAMENTO</a></div>';
 			
 			fecha_inicial = fecha_inicial.split('-');
 			var anio = parseInt(fecha_inicial[0]);
@@ -3064,6 +3124,74 @@ $(document.body).on('click','#btn_guardar_pastilla',function(e){
 		},
 		type : 'POST',
 		url : URL_WS+'pastilla',
+		data : formData,
+		processData: false,
+		contentType: false,
+	});
+	//mainView.router.navigate('/agregarPastilla/');
+});
+
+
+$(document.body).on('click','#btn_editar_pastilla',function(e){
+	e.preventDefault();
+	var id_pastilla = $('#id_pastilla').val();
+	var id_usuario = $('#id_usuario').val();
+	var fecha_inicial = String($('#fecha1').val());
+	var fecha_final = String($('#fecha2').val());
+	if(fecha_final==''){
+		fecha_final = fecha_inicial;
+	}
+	var hora = String($('#alarm').val());
+	var nombre_medicamento = String($('#nombre_medicamento').val());
+	var id_usuario = localStorage.getItem('userid');
+	var formData = new FormData();
+	var horas = hora.split(':')[0];
+	var minutos = hora.split(':')[1];
+	formData.append('fecha',fecha_inicial);  
+	formData.append('fecha_final',fecha_final);  
+	formData.append('nombre_pastilla',nombre_medicamento);  
+	formData.append('id_usuario',id_usuario);  
+	formData.append('hora_notif',hora);  
+	formData.append('id_pastilla',id_pastilla);  
+	formData.append('id_usuario',id_usuario);  
+	$.ajax({
+		headers: {
+			"apikey" : localStorage.getItem('apikey')
+		},
+		beforeSend : function(){
+			app.preloader.show();
+		},
+		complete : function(){
+			app.preloader.hide();
+		},
+		success : function(data){
+			console.log(data);
+			var fecha_inicial = data.fecha_inicial;
+			var fecha_final = data.fecha_final;
+			var nombre_pastilla = data.nombre_pastilla
+			
+			
+			fecha_inicial = fecha_inicial.split('-');
+			var anio = parseInt(fecha_inicial[0]);
+			var mes = parseInt(fecha_inicial[1]-1);
+			var dia = parseInt(fecha_inicial[2]);
+			var seg = parseInt(0);
+			var d = new Date(anio,mes,dia,horas,minutos,seg);
+			cordova.plugins.notification.local.clear(data.id, function() {
+				cordova.plugins.notification.local.schedule({
+					id : data.id,
+					title: 'Alerta de toma de medicamento',
+					text: 'No se olvide de tomar su medicamento: '+nombre_pastilla,
+					foreground: true,
+					at : d,
+					trigger: { every: 'day' }
+				});
+				mainView.router.navigate('/pastillasMensual/');
+			});
+			
+		},
+		type : 'POST',
+		url : URL_WS+'editar-pastilla',
 		data : formData,
 		processData: false,
 		contentType: false,
